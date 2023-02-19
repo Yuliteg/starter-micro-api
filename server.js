@@ -20,7 +20,7 @@ dbConnection.on('open', () => {
 app.use(express.json());
 app.use(cors());
 
-app.post('/api/contact-form', async (req, res) => {
+app.post('/', async (req, res) => {
   try {
     const newUserContactDetails = new UserContactDetails({
       name: req.body.name,
@@ -35,7 +35,7 @@ app.post('/api/contact-form', async (req, res) => {
   }
 });
 
-app.get('/api/contact-form', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const contactDetails = await UserContactDetails.find();
     res.json(contactDetails);
